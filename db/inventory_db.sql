@@ -26,19 +26,12 @@ CREATE TABLE `soldItems` (
   `employeeId` int(11) NOT NULL,
   `inventoryId` int(11) NOT NULL,
   `sold_qty` int(11) DEFAULT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `id_idx` (`employeeId`),
   KEY `id_idx1` (`inventoryId`),
-  CONSTRAINT `employeeId` 
-    FOREIGN KEY (`employeeId`) 
-    REFERENCES `employees` (`id`) 
-      ON DELETE NO ACTION 
-      ON UPDATE NO ACTION,
-  CONSTRAINT `inventoryId` 
-    FOREIGN KEY (`inventoryId`) 
-    REFERENCES `inventory` (`id`) 
-      ON DELETE CASCADE 
-      ON UPDATE NO ACTION
-) ;
+  CONSTRAINT `employeeId` FOREIGN KEY (`employeeId`) REFERENCES `employees` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `inventoryId` FOREIGN KEY (`inventoryId`) REFERENCES `inventory` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+);
 
 
