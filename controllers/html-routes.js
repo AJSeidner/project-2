@@ -30,28 +30,49 @@ router.post("/login",function(request,response){
 	var userName=request.body.username;
 	var password=request.body.password;
 
-	connection.query("select * from employees",function(err,result){
-		for (var i=0 ; i<result.length ; i++){
-			if(userName === result[i].email){
-				if(password===result[i].password)
-				{
-					console.log("ID match " + userName);
-					response.redirect("/"+userName);
-				}
-
-			else{
-				console.log("wrong password");
+	connection.query("select * from employees where email = ?",[userName],function(err,result){
+		console.log(result[0].role);
+		if (result.length === 0)
+			{
+			response.redirect("failedlogin");
 			}
 
-				
+		if(result.length>0){
+			 if(result[0].password === password)
+			{
+			if(result[0].role === "Manager"){
+				response.redirect("/manager/"+result[0].fname)
+
+				// response.render("manager",{fname:result[0].fname});
 			}
-			else{
-				console.log("Id doesn't match");
+			else
+			{
+				response.redirect("/seller/"+result[0].fname)
+				// response.render("seller",{fname:result[0].fname});
 			}
-			
+
+			}
+		else
+			{
+			response.redirect("failedlogin");
+			}
 		}
+		
 	})
 })
+
+router.get("/manager/:name",function(request,response){
+	response.render("manager",{fname:request.params.name})
+});
+
+router.get("/seller/:name",function(request,response){
+	response.render("seller",{fname:request.params.name})
+});
+router.get("/failedlogin",function(request,response){
+
+	response.render("failedlogin");
+});
+
 
 // if credential is correct route to salerperson or manager's homepage
 //credeintial is wrong route to failure login 
