@@ -1,3 +1,4 @@
+drop database inventory_db;
 CREATE DATABASE `inventory_db`;
 use `inventory_db`;
 
@@ -35,5 +36,4 @@ CREATE TABLE `inventory_line` (
   CONSTRAINT `employeeId` FOREIGN KEY (`employeeId`) REFERENCES `employees` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `inventoryId` FOREIGN KEY (`inventoryId`) REFERENCES `inventory` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 );
-
 
