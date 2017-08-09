@@ -7,7 +7,7 @@ var methodOverride = require('method-override');
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-var db = require("./models");
+//var db = require("./models");
 //Serve static content for the app from the "public" directory in the application directory.
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
@@ -29,10 +29,12 @@ app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 
-var router = require("./controllers/burgers_controller.js");
-app.use("/", router);
+require("./controllers/_api-routes.js")(app);
+require("./controllers/_html-routes.js")(app);
+require("./controllers/_manager-routes.js")(app);
+require("./controllers/_salesperson-routes.js")(app);
 
-console.log(req.body.burger_name);
+
 
 db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
