@@ -22,12 +22,21 @@ function objToSql(ob) {
     // loop through the keys and push the key/value as a string int arr
     for (var key in ob) {
         var value = ob[key];
+        // console.log("value before adding quote: "+ value);
+        // console.log("value data type: "+typeof value);
+        // console.log("other check: "+value.indexOf(" "));
         // check to skip hidden properties
         if (Object.hasOwnProperty.call(ob, key)) {
             // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
+                // console.log("value:"+value);
             }
+            //if the string is one single word value that is not true or false
+            else if (value !== "true" || value !== "false")
+                {
+                    value = "'" + value + "'";
+                }
             // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
             // e.g. {sleepy: true} => ["sleepy=true"]
             arr.push(key + "=" + value);
