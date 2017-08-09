@@ -1,3 +1,8 @@
+var connection = require("../config/connection.js");
+var express = require("express");
+var router = express.Router();
+var bodyParser = require("body-parser");
+
 
 
 //TODO
@@ -9,6 +14,12 @@
 // route: /view inventory
 // display all inventory info regardless of region code
 // nice to have: sort by region, sort by category
+
+router.get("/allinventory",function(request,response){
+	connection.query("select * from inventory ",function(err,result){
+		console.log(result);
+	})
+})
 
 
 //TODO
@@ -61,3 +72,4 @@
 
 
 
+module.exports=router;
