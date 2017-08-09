@@ -88,8 +88,8 @@ var orm = {
 
     },
 
-    findWhere: function (tableInput, col, val, cb) {
-        var queryString = "SELECT * FROM " + tableInput + " WHERE" + col + " = " + val;
+    findWhere: function (tableInput, objColVals, cb) {
+        var queryString = "SELECT * FROM " + tableInput + " WHERE " + objToSql(objColVals);
 
         console.log(queryString);
 
@@ -102,10 +102,12 @@ var orm = {
         });
     },
 
-    leftJoin: function (table1, table2, t1col,t2col, cb) {
-        var queryString= "SELECT * FROM "+ table1+ " as t1"
-                        + "LEFT JOIN "+table2+" as"+ "  as t2"
-                        +  "ON t1.?? = t2.??";
+    innerJoin: function (table1, table2, t1col,t2col, cb) {
+        var queryString= "SELECT * FROM "+ table1 + " as t1"
+                        + " INNER JOIN "+ table2 + " as t2"
+                        +  " ON t1.?? = t2.??";
+
+        console.log("IN inner join: "+queryString);
         connection.query(queryString,[t1col,t2col], function(err,result){
             if(err){
                 throw err;
@@ -117,7 +119,8 @@ var orm = {
 
     },
     select: function (whatToSelect, tableInput, cb) {
-        var queryString = "SELECT" + whatToSelect.toString() + " FROM" + tableInput;
+        var queryString = "SELECT " + whatToSelect.toString() + " FROM " + tableInput;
+        console.log("IN select: "+queryString);
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
