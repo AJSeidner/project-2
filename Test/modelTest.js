@@ -75,7 +75,7 @@ inventoryLine.all(function(result){
     console.log(result);
 });
 
-inventoryLine.create(["employeeId","inventoryId","qty","txnType"],[1,2,2,"s"],function(result){
+inventoryLine.create(["employeeId","inventoryId","qty","txnType","price_cost"],[1,2,2,"s",10.50],function(result){
     console.log("create");
     console.log(result);
 
