@@ -8,6 +8,13 @@ var methodOverride = require('method-override');
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+
+var connection = require("./config/connection.js");
+  var routes = require("./controllers/html-routes.js");
+ var managerRoutes=require("./controllers/manager-routes.js");
+var app = express();
+var port = 3000;
+var exphbs = require("express-handlebars");
 //var db = require("./models");
 //Serve static content for the app from the "public" directory in the application directory.
 app.use(methodOverride("_method"));
@@ -36,10 +43,6 @@ app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 
-require("./controllers/_api-routes.js")(app);
-require("./controllers/_html-routes.js")(app);
-require("./controllers/_manager-routes.js")(app);
-require("./controllers/_salesperson-routes.js")(app);
 
 
 
