@@ -1,39 +1,67 @@
+<div class="container">
+    <div class="jumbotron" id="title">
+    <div>
+    <img src="/assets/img/logo2.png" class="img-circle" alt="logo" width="100" height="100" id = "logo">
+    </div>
+    <h1 class="center-align" id= "imd">Inventory Management Database</h1> 
+    <h3 class="center-align" id= "sub-tag">where success communicates</h3> 
+</div>
+
+
+
+
 <div id="login">
+  <h1 id="addProduct">Add  Product</h1>
+  <hr>
 
-  <h1><strong>Add  Product </strong> </h1>
-
-  <div class="login-box shadow">
+  <div class="login-box shadow" id="leftSwoop">
    <form action="/managers/addproduct" method='post' class='login-form'>
 
      <i id='username-input-icon' class='icon-user'></i>
-     <label> please enter the product name </label>
-     <input id="username" autocomplete="off" placeholder="product name" class='dark' type="text" name="product_name">
+     <label>Product Name: </label>
+     <input id="username" autocomplete="off" placeholder="product name" class='dark' type="text" name="product_name" required>
+
+      <br><br>
 
      <i id='password-input-icon' class='icon-lock'></i>
-     <label> please enter the quantitiy </label>
-     <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="text" name="stock_quantity">
+     <label>Quantity: </label>
+     <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="text" name="stock_quantity" required>
+
+       <br><br>
 
      <i id='password-input-icon' class='icon-lock'></i>
-     <label> please enter the unit_price </label>
-     <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="text" name="unit_price">
+     <label>Unit Price: </label>
+     <input id="password" autocomplete="off" placeholder="unit_price " class='dark' type="text" name="unit_price" required>
+
+       <br><br>
 
      <i id='password-input-icon' class='icon-lock'></i>
-     <label> please enter the regionCode </label>
-     <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="text" name="regionCode">
+     <label>Region Code: </label>
+     <input id="password" autocomplete="off" placeholder="region_code" class='dark' type="text" name="regionCode" required>
+
+       <br><br>
 
         <i id='password-input-icon' class='icon-lock'></i>
-     <label> please enter the category </label>
-     <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="text" name="category">
+     <label>Category: </label>
+     <input id="password" autocomplete="off" placeholder="category " class='dark' type="text" name="category" required>
+
+
+       <br><br>
 
       <i id='password-input-icon' class='icon-lock'></i>
-     <label> please enter the purchase cost </label>
-     <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="text" name="purchase_cost">
+     <label>Cost: </label>
+     <input id="password" autocomplete="off" placeholder="cost " class='dark' type="text" name="purchase_cost" required>
 
+
+       <br><br>
 
     <input type="submit" class='button large' value="ADD">
    
    
-
+  </form>
   </div>
+
+</div>
+
 
 
