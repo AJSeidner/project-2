@@ -2,6 +2,7 @@ var connection = require("../config/connection.js");
 var express = require("express");
 var router = express.Router();
 var bodyParser = require("body-parser");
+var employee = require("../models/employee.js");
 //TODO
 // route: / 
 // display homepage
@@ -22,7 +23,7 @@ router.get("/login", function(request, response) {
 router.post("/login", function(request, response) {
 	var userName = request.body.username;
 	var password = request.body.password;
-	connection.query("select * from employees where email = ?", [userName], function(err, result) {
+	employee.findWhere({email:userName}, function(result) {
 		console.log(result[0].role);
 		if (result.length === 0) {
 			response.redirect("failedlogin");

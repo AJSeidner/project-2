@@ -30,6 +30,7 @@ CREATE TABLE `inventory_line` (
   `qty` int(11) NOT NULL,
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `txnType` varchar(45) NOT NULL,
+  'price_cost' decimal (10,5) NOT NULL DEFAULT "0.0000"
   PRIMARY KEY (`id`),
   KEY `id_idx` (`employeeId`),
   KEY `id_idx1` (`inventoryId`),
