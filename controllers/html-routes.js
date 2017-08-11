@@ -8,7 +8,7 @@ var bodyParser=require("body-parser");
 // display homepage
 router.get("/",function(request,response){
 
-		response.send("this is the homepage");
+		response.render("layouts/main");
 });
 
 
@@ -31,7 +31,7 @@ router.post("/login",function(request,response){
 	var password=request.body.password;
 
 	connection.query("select * from employees where email = ?",[userName],function(err,result){
-		console.log(result[0].role);
+		//console.log(result[0].role);
 		if (result.length === 0)
 			{
 			response.redirect("failedlogin");
@@ -66,7 +66,7 @@ router.get("/manager/:name",function(request,response){
 });
 
 router.get("/seller/:name",function(request,response){
-	response.render("seller",{fname:request.params.name})
+	response.render("seller",{fname:request.pagit rams.name})
 });
 router.get("/failedlogin",function(request,response){
 
