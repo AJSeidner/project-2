@@ -25,11 +25,12 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
+app.use(express.static("public"));
+
 
 app.use("/",routes);
 app.use("/managers",managerRoutes);
 app.use("/seller",salespersonRoutes);
-app.use(express.static("public"));
 
 
 	
