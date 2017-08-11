@@ -21,6 +21,7 @@ router.get("/allinventory",function(request,response){
 	inventory.all(function(result){
 		console.log(result);
 	})
+	response.send("ALL INVENTORY PAGE");
 })
 
 
@@ -32,6 +33,8 @@ router.get("/allsold",function(request,response){
 	inventoryline.findWhere({txnType:'s'},function(result){
 		console.log(result);
 	})
+
+	response.send("ALL SOLD PAGE");
 })
 
 //TODO
@@ -50,6 +53,7 @@ router.get("/lowstock",function(request,response){
 		}
 		console.log(lowstockArr);
 	})
+	response.send("LOW STOCK PAGE");
 })
 
 
@@ -89,7 +93,7 @@ router.put("/addstock",function(request,response){
 		//add one entry to Inventory Line when adding more stock to an item
 		//hardcoded manager's employeeId, need to change it later
 		//TODO: Need to make sure manager ID is correct when deploy to HEROKU
-		inventoryline.create(["employeeId","inventoryId","qty","txnType","price_cost"],[3,result[0].id,stockQuantity,"p",totalcost],function(data){
+		inventoryline.create(["employeeId","inventoryId","qty","txnType","price_cost"],[3,result[0].id,stockQuantity,"s",totalcost],function(data){
 			console.log(data);
 		});
 
@@ -116,8 +120,58 @@ router.put("/addstock",function(request,response){
 // post - update inventory item with above info
 //nice to have: only allow transfer when an item is available in both regions(currently we have east and west region) 
 
+router.get("/transferstock",function(request,response){
+	response.render("transferstock");
+})
 
+router.put("/transferstock",function(request,response){
 
+	var productName = request.body.product_name;	
+	var region = request.body.regionCode;
+	var quantity = parseInt(request.body.quantity);
+	console.log("quantity transferrer"+quantity);
+	inventory.findWhere({product_name:productName},function(result){
+			for(var i=0 ; i<result.length;i++)
+			{
+				if(result[i].regionCode === region)
+				{
+					var total= result[i].stock_qty - quantity;
+					console.log("Transffered from = " +result[i].stock_qty);
+					console.log("total= "+total);
+					var condition=" id = "+ result[i].id;
+				 console.log("condition: ", condition);
+				 inventory.update({stock_qty:total}, condition , function(data){	
+						// response.redirect("/managers/transferstock"); 
+		 });
+					
+				}
+		}
+		var tranToName=request.body.name;
+		var tranToRegion = request.body.toRegionCode;
+
+		inventory.findWhere({product_name:tranToName},function(result){
+			for(var i=0 ; i<result.length ; i++)
+			{
+				if(result[i].regionCode === tranToRegion)
+				{
+						var total= result[i].stock_qty + quantity;
+					console.log("Transferred to = "+ result[i].stock_qty);
+					console.log("Total= "+total)
+					var condition=" id = "+ result[i].id;
+					 console.log("condition: ", condition);
+					 inventory.update({stock_qty:total}, condition , function(data){	
+						
+		 });
+
+				}
+			}
+
+		})
+
+	})
+		response.redirect("/managers/transferstock"); 
+})
+	
 
 
 
@@ -147,9 +201,6 @@ router.post("/addproduct",function(request,response){
 		response.redirect("/managers/addstock");
 	})
 
-	// inventoryline.create(["employeeId","inventoryId","qty","txnType","price_cost"],[3,data.insertId,stockQuantity,"p",totalcost],function(data){
-	//  		console.log(data);
-	//  	});
 })
 
 
