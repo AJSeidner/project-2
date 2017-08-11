@@ -1,0 +1,38 @@
+<div id="login">
+
+  <h1><strong>Add stock</strong> </h1>
+
+  <div class="login-box shadow">
+   <form action="/addstock" method='post' class='login-form'>
+
+     <i id='username-input-icon' class='icon-user'></i>
+     <label> please enter the product_name </label>
+     <input id="username" autocomplete="off" placeholder="product name" class='dark' type="text" name="product_name">
+
+     <i id='password-input-icon' class='icon-lock'></i>
+     <label> please enter the quantitiy </label>
+     <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="password" name="stock_quantity">
+
+    <input type="submit" class='button large' value="Please, login to continue.">
+   
+   <div class="stock_quantity" 
+
+   
+<ul>
+  {{#each result}}
+    <li>
+       <p>ID: {{this.product_name}}</p>
+       <p>Wish: {{this.stock_qty}}</p>
+    </li>
+  {{/each}}
+</ul>
+</div>
+
+  </div>
+
+   <div class="login-footer">
+     Honey File is made by Threat Stack, Inc - Free of Charge. Enjoy!<br />
+<a href="https://www.threatstack.com" target="_BLANK">https://www.threatstack.com</a>
+   </div>
+
+</div>

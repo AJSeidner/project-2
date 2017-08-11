@@ -1,0 +1,28 @@
+ #imd {
+	font-size: 50px;
+	text-align: center;
+	color: blue;
+	font-family: 'Alfa Slab One', cursive;
+	
+}
+
+
+#sub-tag {
+	font-size: 30px;
+	text-align: center;
+	color: blue;
+	font-family: 'Ropa Sans', sans-serif;
+}
+
+#logo {
+	height: 75px;
+	width: 75px;
+	float: left;
+}
+
+#please-sign-in {
+	font-size: 30px;
+	text-align: center;
+	color: blue;
+	font-family: 'Ropa Sans', sans-serif;
+}

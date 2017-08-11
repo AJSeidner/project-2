@@ -22,6 +22,7 @@
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.10",
+    "handlebars-helper-css": "^0.1.0",
     "method-override": "^2.3.9",
     "mysql": "^2.14.1"
   }

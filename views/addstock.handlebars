@@ -1,0 +1,41 @@
+<div id="login">
+
+  <h1><strong>Add stock</strong> </h1>
+
+  <div class="login-box shadow">
+   <form action="/managers/addstock?_method=put" method='post' class='login-form'>
+
+     <i id='username-input-icon' class='icon-user'></i>
+     <label> please enter the product_name </label>
+     <input id="username" autocomplete="off" placeholder="product name" class='dark' type="text" name="product_name">
+
+     <i id='password-input-icon' class='icon-lock'></i>
+     <label> please enter the quantitiy </label>
+     <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="text" name="stock_quantity">
+
+     <i id='password-input-icon' class='icon-lock'></i>
+     <label> please enter the purchase cost </label>
+     <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="text" name="purchase_cost">
+
+    <input type="submit" class='button large' value="ADD">
+   
+   
+
+  </div>
+
+
+
+<div class="stock_quantity" 
+ 
+  
+<ul>
+  {{#each products}}
+    <li>
+       <p>product name: {{this.product_name}}</p>
+       <p>quantity: {{this.stock_qty}}</p>
+    </li>
+  {{/each}}
+</ul>
+</div>
+
+

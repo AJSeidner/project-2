@@ -1,38 +1,21 @@
-
-var express = require('express');
-var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
-
-
-
-var app = express();
-var PORT = process.env.PORT || 3000;
-
-
+var express = require("express");
+var bodyParser = require("body-parser");
 var connection = require("./config/connection.js");
   var routes = require("./controllers/html-routes.js");
  var managerRoutes=require("./controllers/manager-routes.js");
+ var salespersonRoutes = require("./controllers/salesperson-routes.js");
 var app = express();
 var port = 3000;
 var exphbs = require("express-handlebars");
-//var db = require("./models");
-//Serve static content for the app from the "public" directory in the application directory.
+var methodOverride = require("method-override");
 app.use(methodOverride("_method"));
-app.use(express.static("public"));
 
-
-
-
-
-var connection = require("./config/connection.js");
-  var routes = require("./controllers/html-routes.js");
-
-var exphbs = require("express-handlebars");
-
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
 
 
 
@@ -43,9 +26,13 @@ app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 
+app.use("/",routes);
+app.use("/managers",managerRoutes);
+app.use("/seller",salespersonRoutes);
+app.use(express.static("public"));
 
 
-
+	
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
  app.use("/",routes);
