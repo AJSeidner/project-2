@@ -1,0 +1,156 @@
+ #imd {
+	font-size: 50px;
+	text-align: center;
+	color: blue;
+	font-family: 'Alfa Slab One', cursive;
+	
+}
+
+
+#sub-tag {
+	font-size: 30px;
+	text-align: center;
+	color: blue;
+	font-family: 'Ropa Sans', sans-serif;
+}
+
+#logo {
+	height: 75px;
+	width: 75px;
+	float: left;
+}
+
+#please-sign-in {
+	font-size: 30px;
+	text-align: center;
+	color: blue;
+	font-family: 'Ropa Sans', sans-serif;
+}
+
+#wronglogin {
+	font-size: 20px;
+	text-align: center;
+	color: red;
+	font-family: 'Ropa Sans', sans-serif;
+
+}
+
+.nameDisplay {
+	color: blue !important;
+	font-size: 40px;
+	text-align: center;
+	font-family: 'Alfa Slab One', cursive;
+	
+}
+
+
+.displayInstructions{
+	font-size: 40px;
+	text-align: center;
+	color: blue;
+	font-family: 'Ropa Sans', sans-serif;
+
+
+}
+
+#addProduct {
+	text-align: center;
+	font-size: 30px;
+	font-family: 'Alfa Slab One', cursive;
+	color: blue;
+	font-weight: bold;
+
+}
+
+.lowStock{
+	margin-top: 100px;
+	font-family: 'Ropa Sans', sans-serif;
+	color: black;
+	font-size: 20px;
+}
+
+#lowStockTitle{
+	text-align: center;
+	font-size: 40px;
+	font-family: 'Ropa Sans', sans-serif;
+	color: blue;
+	font-weight: bold;
+
+
+}
+
+
+.salespersonadd {
+	margin-top: 100px;
+	font-family: 'Ropa Sans', sans-serif;
+	color: black;
+	font-size: 20px;
+	text-align: center;
+
+}
+
+
+#addStock{
+
+	text-align: center;
+	font-size: 30px;
+	font-family: 'Alfa Slab One', cursive;
+	color: blue;
+	font-weight: bold;
+
+
+}
+
+
+path {
+            stroke: #fff;
+        }
+
+        path:hover {
+            opacity: 0.9;
+        }
+
+        rect:hover {
+            fill: blue;
+        }
+
+        .axis {
+            font: 10px sans-serif;
+        }
+
+        .legend tr {
+            border-bottom: 1px solid grey;
+        }
+
+        .legend tr:first-child {
+            border-top: 1px solid grey;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        .x.axis path {
+            display: none;
+        }
+
+        .legend {
+            margin-bottom: 76px;
+            display: inline-block;
+            border-collapse: collapse;
+            border-spacing: 0px;
+        }
+
+        .legend td {
+            padding: 4px 5px;
+            vertical-align: bottom;
+        }
+
+        .legendFreq,
+        .legendPerc {
+            align: right;
+            width: 50px;
+        }

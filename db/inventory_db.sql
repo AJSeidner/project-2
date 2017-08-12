@@ -1,39 +1,40 @@
-CREATE database `inventory_db` ;
+drop database inventory_db;
+CREATE DATABASE `inventory_db`;
+use `inventory_db`;
 
 CREATE TABLE `employees` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `fname` VARCHAR(100) NOT NULL,
-  `lname` VARCHAR(100) NOT NULL,
-  `role` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(250) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`));
-
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fname` varchar(100) NOT NULL,
+  `lname` varchar(100) NOT NULL,
+  `role` varchar(45) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `regionCode` varchar(5) NOT NULL,
+  PRIMARY KEY (`id`)
+);
 
 CREATE TABLE `inventory` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `product_name` VARCHAR(200) NOT NULL,
-  `stock_qty` INT NULL DEFAULT 0,
-  `unit_price` DECIMAL(5) NULL DEFAULT 0,
-  `regionCode` VARCHAR(10) NOT NULL,
-  `category` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`id`));
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(200) NOT NULL,
+  `stock_qty` int(11) DEFAULT '0',
+  `unit_price` decimal(10,5) DEFAULT '0.00000',
+  `regionCode` varchar(10) NOT NULL,
+  `category` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+);
 
-  CREATE TABLE `soldItems` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `employeeId` INT NOT NULL,
-  `inventoryId` INT NOT NULL,
-  `sold_qty` INT NULL,
+CREATE TABLE `inventory_line` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `employeeId` int(11) NOT NULL,
+  `inventoryId` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `txnType` varchar(45) NOT NULL,
+  'price_cost' decimal (10,5) NOT NULL DEFAULT "0.0000"
   PRIMARY KEY (`id`),
-  INDEX `id_idx` (`employeeId` ASC),
-  INDEX `id_idx1` (`inventoryId` ASC),
-  CONSTRAINT `employeeId`
-    FOREIGN KEY (`employeeId`)
-    REFERENCES `inventory_db`.`employees` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `inventoryId`
-    FOREIGN KEY (`inventoryId`)
-    REFERENCES `inventory_db`.`inventory` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE NO ACTION);
+  KEY `id_idx` (`employeeId`),
+  KEY `id_idx1` (`inventoryId`),
+  CONSTRAINT `employeeId` FOREIGN KEY (`employeeId`) REFERENCES `employees` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `inventoryId` FOREIGN KEY (`inventoryId`) REFERENCES `inventory` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+);
+

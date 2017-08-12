@@ -1,0 +1,103 @@
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+                <img src="/assets/img/logo2.png" height = "50px" width = "50px" class="pull-left">
+          <!-- we need to update links in href -->
+                <li><a href="/manager/Matt">Home</a></li>
+                <li><a href="/managers/allsold">Items Sold</a></li>
+                <li><a href="/managers/lowstock">Low Stock Items</a></li>
+                 <li><a href="/managers/addproduct">Add Product</a></li>
+                <li><a href= "/managers/allinventory">Manage Inventory</a></li>
+                <li><a href= "/managers/addstock">Add Stock</a></li>
+                <li role="separator" class="divider"></li>
+              </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/managers/addsalesperson">Manage Staff</a></li>
+            <li><a href="/login">Log Out</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="jumbotron" id="title">
+    <div>
+    <img src="/assets/img/logo2.png" class="img-circle" alt="logo" width="100" height="100" id = "logo">
+    </div>
+    <h1 class="center-align" id= "imd">Inventory Management Database</h1> 
+    <h3 class="center-align" id= "sub-tag">where success communicates</h3> 
+</div>
+
+
+
+<div id="login">
+  <h1 id="addProduct">Add  Product</h1>
+  <hr>
+
+  <div class="login-box shadow" id="leftSwoop">
+   <form action="/managers/addproduct" method='post' class='login-form'>
+
+     <i id='username-input-icon' class='icon-user'></i>
+     <label>Product Name: </label>
+     <input id="username" autocomplete="off" placeholder="product name" class='dark' type="text" name="product_name" required>
+
+      <br><br>
+
+     <i id='password-input-icon' class='icon-lock'></i>
+     <label>Quantity: </label>
+     <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="text" name="stock_quantity" required>
+
+       <br><br>
+
+     <i id='password-input-icon' class='icon-lock'></i>
+     <label>Unit Price: </label>
+     <input id="password" autocomplete="off" placeholder="unit_price " class='dark' type="text" name="unit_price" required>
+
+       <br><br>
+
+     <i id='password-input-icon' class='icon-lock'></i>
+     <label>Region Code: </label>
+     <input id="password" autocomplete="off" placeholder="region_code" class='dark' type="text" name="regionCode" required>
+
+       <br><br>
+
+        <i id='password-input-icon' class='icon-lock'></i>
+     <label>Category: </label>
+     <input id="password" autocomplete="off" placeholder="category " class='dark' type="text" name="category" required>
+
+
+       <br><br>
+
+      <i id='password-input-icon' class='icon-lock'></i>
+     <label>Cost: </label>
+     <input id="password" autocomplete="off" placeholder="cost " class='dark' type="text" name="purchase_cost" required>
+
+
+       <br><br>
+
+    <input type="submit" class='button large' value="ADD">
+   
+   
+  </form>
+  </div>
+
+</div>
+
+
+
