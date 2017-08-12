@@ -39,9 +39,14 @@ var inventory = {
         orm.select(cols, "inventory", function (data) {
             cb(data);
         });
+    },
+    //only do left join with inventory line
+    LeftJoinInventoryLine: function(cb){
+        var condition="inventory.id=inventory_line.inventoryId and inventory_line.txnType=\"s\"";
+        orm.leftJoin("inventory","inventory_line",condition,function(data){
+            cb(data);
+        });
     }
-
-
 
 }
 
