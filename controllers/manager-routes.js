@@ -19,9 +19,9 @@ var employee=require("../models/employee.js");
 
 router.get("/allinventory",function(request,response){
 	inventory.all(function(result){
-		console.log(result);
+		response.render("allinventory",{products:result})
 	})
-	response.send("ALL INVENTORY PAGE");
+	
 })
 
 
@@ -35,7 +35,10 @@ router.get("/allsold",function(request,response){
 			var soldItems = data.filter(e => e.txnType === "s");
   response.render("allsold",{products:soldItems});
 });
-});
+
+
+})
+
 
 //TODO
 // route: /view items are low in stock

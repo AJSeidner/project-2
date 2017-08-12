@@ -35,12 +35,15 @@ var employee=require("../models/employee.js");
 // route: /view all sold items
 // display all sold items belong to that salseperson
 // nice to have:  add sort by category 
-	router.get("/:name/allsold", function(request,response){
-		inventoryline.innerJoin("inventory","inventoryId","id",function(data){
+	router.get("/:name/allsold", function(request,response)
+{		inventoryline.innerJoin("inventory","inventoryId","id",function(data){
 			var soldItems = data.filter(e => e.txnType === "s");
-   
+
+			console.log(soldItems);
+    response.render("sellerallsold",{products:soldItems});
+
 });
-		response.send("we are here");
+	
 	})
 
 //TODO
