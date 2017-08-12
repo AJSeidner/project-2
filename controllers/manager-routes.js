@@ -53,7 +53,7 @@ router.get("/lowstock",function(request,response){
 		var lowstockArr=[];
 		for (var i=0 ; i<result.length ; i++)
 		{
-		if(result[i].stock_qty < 60 )
+		if(result[i].stock_qty < 10 )
 			{
 				lowstockArr.push(result[i]);
 			}
