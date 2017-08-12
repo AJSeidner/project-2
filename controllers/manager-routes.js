@@ -29,13 +29,13 @@ router.get("/allinventory",function(request,response){
 // route: /view all sold items
 // display all sold items regardless of region code
 // nice to have: sort by region, sort by category
-router.get("/allsold",function(request,response){
-	inventoryline.findWhere({txnType:'s'},function(result){
-		console.log(result);
-	})
 
-	response.send("ALL SOLD PAGE");
-})
+router.get("/allsold",function(request,response){
+	inventoryline.innerJoin("inventory","inventoryId","id",function(data){
+			var soldItems = data.filter(e => e.txnType === "s");
+  response.render("allsold",{products:soldItems});
+});
+});
 
 //TODO
 // route: /view items are low in stock
@@ -46,14 +46,15 @@ router.get("/lowstock",function(request,response){
 		var lowstockArr=[];
 		for (var i=0 ; i<result.length ; i++)
 		{
-		if(result[i].stock_qty < 15 )
+		if(result[i].stock_qty < 60 )
 			{
 				lowstockArr.push(result[i]);
 			}
 		}
 		console.log(lowstockArr);
+		response.render("lowstock",{products:lowstockArr});
 	})
-	response.send("LOW STOCK PAGE");
+	
 })
 
 

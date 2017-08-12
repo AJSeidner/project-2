@@ -38,7 +38,7 @@ var employee=require("../models/employee.js");
 	router.get("/:name/allsold", function(request,response){
 		inventoryline.innerJoin("inventory","inventoryId","id",function(data){
 			var soldItems = data.filter(e => e.txnType === "s");
-    console.log(soldItems);
+   
 });
 		response.send("we are here");
 	})

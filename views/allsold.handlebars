@@ -1,0 +1,22 @@
+
+    <h1>All Sold </h1>
+ <table class="table">
+    <thead> 
+        <th> Name</th> 
+        <th> Quantity</th> 
+        <th>Price </th>
+        <th> Region  </th>
+        <th> Dep </th> 
+    </thead> 
+    <tbody> 
+        {{#each products}} 
+        <tr> 
+            <td>{{this.product_name}}</td> 
+            <td>{{this.stock_qty}}</td> 
+            <td>{{this.unit_price}} $</td>
+            <td>{{this.regionCode}}</td>
+            <td>{{this.category}}</td
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table> 
