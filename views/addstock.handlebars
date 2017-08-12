@@ -1,3 +1,51 @@
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+                <img src="/assets/img/logo2.png" height = "50px" width = "50px" class="pull-left">
+          <!-- we need to update links in href -->
+                <li><a href="/manager/{{fname}}">Home</a></li>
+                <li><a href="/managers/allsold">Items Sold</a></li>
+                <li><a href="/managers/lowstock">Low Stock Items</a></li>
+                 <li><a href="/managers/addproduct">Add Product</a></li>
+                <li><a href= "/managers/allinventory">Manage Inventory</a></li>
+                <li><a href= "/managers/addstock">Add Stock</a></li>
+                <li role="separator" class="divider"></li>
+              </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/managers/addsalesperson">Manage Staff</a></li>
+            <li><a href="/login">Log Out</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="jumbotron" id="title">
+    <div>
+    <img src="/assets/img/logo2.png" class="img-circle" alt="logo" width="100" height="100" id = "logo">
+    </div>
+    <h1 class="center-align" id= "imd">Inventory Management Database</h1> 
+    <h3 class="center-align" id= "sub-tag">where success communicates</h3> 
+</div>
+
+
+
 <div id="login">
 
   <h1 id="addStock">Add stock</h1>
@@ -6,16 +54,16 @@
    <form action="/managers/addstock?_method=put" method='post' class='login-form'>
 
      <i id='username-input-icon' class='icon-user'></i>
-     <label> please enter the product_name </label>
+     <label> Product: </label>
      <input id="username" autocomplete="off" placeholder="product name" class='dark' type="text" name="product_name">
 
      <i id='password-input-icon' class='icon-lock'></i>
-     <label> please enter the quantitiy </label>
+     <label> Quantity: </label>
      <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="text" name="stock_quantity">
 
      <i id='password-input-icon' class='icon-lock'></i>
-     <label> please enter the purchase cost </label>
-     <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="text" name="purchase_cost">
+     <label> Cost: </label>
+     <input id="password" autocomplete="off" placeholder="cost " class='dark' type="text" name="purchase_cost">
 
     <input type="submit" class='button large' value="ADD">
    
@@ -25,10 +73,10 @@
 
 
 
-<div class="stock_quantity" 
+<div class="stock_quantity" >
  
   
-<ul>
+<!-- <ul>
   {{#each products}}
     <li>
        <p>product name: {{this.product_name}}</p>
@@ -36,6 +84,27 @@
     </li>
   {{/each}}
 </ul>
+ -->
+
+<table class="table">
+    <thead> 
+        <th> Name</th> 
+        <th> Quantity</th> 
+        
+    </thead> 
+    <tbody> 
+        {{#each products}} 
+        <tr> 
+            <td>{{this.product_name}}</td> 
+            <td>{{this.stock_qty}}</td> 
+            
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table> 
+</div>
+
+
 </div>
 
 
