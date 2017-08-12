@@ -1,0 +1,82 @@
+
+
+    <h1>items ready to sell </h1>
+ <table class="table">
+    <thead> 
+        <th> Name</th> 
+        <th> Quantity</th> 
+        <th>Price </th>
+        <th> Region  </th>
+        <th> Dep </th> 
+        <th> Quantity sold </th>
+
+    </thead> 
+    <tbody> 
+        {{#each products}} 
+        <tr> 
+            <td>{{this.product_name}}</td> 
+            <td>{{this.stock_qty}}</td> 
+            <td>{{this.unit_price}} $</td>
+            <td>{{this.regionCode}}</td>
+            <td>{{this.category}}</td>
+            <td><form action="/seller/{{fname}}/sellinventory?_method=put" method='post' class='login-form'>
+
+
+     <i id='password-input-icon' class='icon-lock'></i>
+     <label> please enter the quantitiy for selling or something </label>
+     <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="text" name="quantity">
+     <input type="hidden" name="product" value={{this.product_name}}>
+     <input type="hidden" name="stock_qty" value={{this.stock_qty}}>
+
+
+    <input type="submit" class='button large' value="Sell"></form></td>
+
+  
+   <!-- <form action="/seller/{{fname}}/sellinventory?_method=put" method='post' class='login-form'>
+
+     <i id='username-input-icon' class='icon-user'></i>
+     <label> please enter the product_name </label>
+     <input id="username" autocomplete="off" placeholder="product name" class='dark' type="text" name="name">
+
+     <i id='password-input-icon' class='icon-lock'></i>
+     <label> please enter the quantitiy for selling or something </label>
+     <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="text" name="quantity">
+
+
+    <input type="submit" class='button large' value="ADD"> -->
+   
+   
+
+  
+
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table> 
+
+
+<!-- <div id="login">
+
+  <h1><strong>Sell item</strong> </h1>
+
+  <div class="login-box shadow">
+   <form action="/seller/{{fname}}/sellinventory?_method=put" method='post' class='login-form'>
+
+     <i id='username-input-icon' class='icon-user'></i>
+     <label> please enter the product_name </label>
+     <input id="username" autocomplete="off" placeholder="product name" class='dark' type="text" name="name">
+
+     <i id='password-input-icon' class='icon-lock'></i>
+     <label> please enter the quantitiy </label>
+     <input id="password" autocomplete="off" placeholder="quantity " class='dark' type="text" name="quantity">
+
+
+    <input type="submit" class='button large' value="ADD">
+   
+   
+
+  </div>
+ -->
+
+
+
