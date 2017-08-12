@@ -20,9 +20,9 @@ var employee=require("../models/employee.js");
 router.get("/allinventory",function(request,response){
 	inventory.all(function(result){
 		response.render("allinventory",{products:result})
-	})
+	});
 	
-})
+});
 
 
 //TODO
@@ -37,7 +37,9 @@ router.get("/allsold",function(request,response){
 });
 
 
-})
+
+
+});
 
 
 //TODO

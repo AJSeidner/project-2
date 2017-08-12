@@ -46,6 +46,21 @@ var employee=require("../models/employee.js");
 	
 	})
 
+router.get("/:name/lowstock",function(request,response){
+	inventory.all(function(result){
+		var lowstockArr=[];
+		for (var i=0 ; i<result.length ; i++)
+		{
+		if(result[i].stock_qty < 60 )
+			{
+				lowstockArr.push(result[i]);
+			}
+		}
+		console.log(lowstockArr);
+		response.render("sellerlowstock",{products:lowstockArr});
+	})
+	
+})
 //TODO
 // route: /report which item is sold and how many in qty
 // post the item id and qty sold - add an entry to solditem table, update the stock qty in the inventory table

@@ -62,7 +62,19 @@
 
 }
 
-#leftSwoop{
+.lowStock{
+	margin-top: 100px;
+	font-family: 'Ropa Sans', sans-serif;
+	color: black;
+	font-size: 20px;
+}
 
-	
+#lowStockTitle{
+	text-align: center;
+	font-size: 40px;
+	font-family: 'Ropa Sans', sans-serif;
+	color: blue;
+	font-weight: bold;
+
+
 }
