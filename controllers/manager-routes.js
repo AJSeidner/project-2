@@ -19,9 +19,9 @@ var employee=require("../models/employee.js");
 
 router.get("/allinventory",function(request,response){
 	inventory.all(function(result){
-		console.log(result);
+		response.render("allinventory",{products:result})
 	})
-	response.send("ALL INVENTORY PAGE");
+	
 })
 
 
@@ -30,11 +30,12 @@ router.get("/allinventory",function(request,response){
 // display all sold items regardless of region code
 // nice to have: sort by region, sort by category
 router.get("/allsold",function(request,response){
-	inventoryline.findWhere({txnType:'s'},function(result){
-		console.log(result);
-	})
+	inventoryline.innerJoin("inventory","inventoryId","id",function(data){
+			var soldItems = data.filter(e => e.txnType === "s");
+  response.render("allsold",{products:soldItems});
+});
 
-	response.send("ALL SOLD PAGE");
+
 })
 
 //TODO
@@ -46,14 +47,15 @@ router.get("/lowstock",function(request,response){
 		var lowstockArr=[];
 		for (var i=0 ; i<result.length ; i++)
 		{
-		if(result[i].stock_qty < 15 )
+		if(result[i].stock_qty < 60 )
 			{
 				lowstockArr.push(result[i]);
 			}
 		}
 		console.log(lowstockArr);
+		response.render("lowstock",{products:lowstockArr});
 	})
-	response.send("LOW STOCK PAGE");
+	
 })
 
 
