@@ -9,8 +9,39 @@ var employee=require("../models/employee.js");
 //TODO
 // route: /:salerperson's name
 // display homepage for that salesperson
+	// a route to sell inventory
+router.get("/:name/sellinventory",function(request,response){
+	var salespersonName=request.params.name;
+		employee.innerJoin("inventory","regionCode","regionCode",function(result){
+			var soldItems = result.filter(e => e.fname === salespersonName);
+
+			//console.log(soldItems);
+			response.render("sellinventory",{products:soldItems});
+		})
+		
+		
 	
 
+});
+
+router.put("/:name/sellinventory",function(request,response){
+	var productName=request.body.product;
+	var employeenName = request.params.name;
+	var quantity=parseInt(request.body.quantity);
+	var dbstock= parseInt(request.body.stock_qty);
+	var totalstock=dbstock-quantity;
+	console.log(totalstock);
+
+
+	employee.findWhere({fname:employeenName},function(result){
+		condition= " product_name=\""+productName+"\" and regionCode=\""+result[0].regionCode+"\"";
+		inventory.update({stock_qty:totalstock},condition,function(data){
+		response.redirect("/seller/"+employeenName+"/sellinventory");
+	})
+	})
+	
+	
+})
 //TODO
 // route: /view inventory
 // display all inventory belong to that salseperson - based on the region code
@@ -43,6 +74,22 @@ var employee=require("../models/employee.js");
 });
 	
 	})
+
+	router.get("/:name/lowstock",function(request,response){
+	inventory.all(function(result){
+		var lowstockArr=[];
+		for (var i=0 ; i<result.length ; i++)
+		{
+		if(result[i].stock_qty < 60 )
+			{
+				lowstockArr.push(result[i]);
+			}
+		}
+		console.log(lowstockArr);
+		response.render("lowstock",{products:lowstockArr});
+	})
+	
+})
 
 //TODO
 // route: /report which item is sold and how many in qty
