@@ -9,7 +9,7 @@ var employee = require("../models/employee.js");
 
 
 router.get("/", function(request, response) {
-	response.send("this is the homepage");
+	response.render("login");
 });
 //TODO
 // route: /login 

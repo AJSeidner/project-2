@@ -4,6 +4,7 @@ var connection = require("./config/connection.js");
   var routes = require("./controllers/html-routes.js");
  var managerRoutes=require("./controllers/manager-routes.js");
  var salespersonRoutes = require("./controllers/salesperson-routes.js");
+ var apiRoutes= require("./controllers/api-routes");
 var app = express();
 var port = 3000;
 var exphbs = require("express-handlebars");
@@ -31,7 +32,7 @@ app.use(express.static("public"));
 app.use("/",routes);
 app.use("/managers",managerRoutes);
 app.use("/seller",salespersonRoutes);
-
+app.use("/",apiRoutes);
 
 	
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
