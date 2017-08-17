@@ -11,10 +11,46 @@
       <form action = "/login" method= "POST" class="form-signin">
         <h2 class="form-signin-heading" id= "please-sign-in">please sign in</h2>
       
-        <input type="text" id="username" class="form-control" name= "username" placeholder="Please Enter your User Name " required autofocus>
+        <input type="text" id="username" class="form-control" name= "username" placeholder="Username/Email " required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="password" class="form-control" name= "password" placeholder="Please Enter Password" required>
+        <input type="password" id="password" class="form-control" name= "password" placeholder="Password" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit" id="signIn">Sign in</button>
       </form>
     </div>
+
+<div class="row pull-right">
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">
+  see test users credentials
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Testing credentials</h4>
+      </div>
+      <div class="modal-body">
+        <p>The following credentials are for testing purpose. Please use the info below to login.</p>
+        <p>
+        Manager:
+        <br>
+        username: matt@test.com<br>
+        pwd: matt
+        </p>
+        <p>
+        Staff:<br>
+        username: shay@test.com<br>
+        pwd:shay
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </main>

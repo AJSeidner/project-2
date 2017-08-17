@@ -25,13 +25,14 @@ router.post("/login", function(request, response) {
 	var password = request.body.password;
 
 	employee.findWhere({email:userName}, function(result) {
-		console.log(result[0].role);
+		//console.log(result[0].role);
 		if (result.length === 0) {
 			response.redirect("failedlogin");
 		}
 		if (result.length > 0) {
+			var role= result[0].role.toLowerCase();
 			if (result[0].password === password) {
-				if (result[0].role === "Manager") {
+				if (role === "manager" || role === "m") {
 					response.redirect("/manager/" + result[0].fname)
 				} else {
 					response.redirect("/seller/" + result[0].fname)

@@ -31,6 +31,8 @@ router.get("/allinventory",function(request,response){
 // nice to have: sort by region, sort by category
 
 router.get("/allsold",function(request,response){
+
+	//console.log(request);
 	inventoryline.innerJoin("inventory","inventoryId","id",function(data){
 			var soldItems = data.filter(e => e.txnType === "s");
   response.render("allsold",{products:soldItems});
@@ -51,7 +53,7 @@ router.get("/lowstock",function(request,response){
 		var lowstockArr=[];
 		for (var i=0 ; i<result.length ; i++)
 		{
-		if(result[i].stock_qty < 60 )
+		if(result[i].stock_qty < 10 )
 			{
 				lowstockArr.push(result[i]);
 			}
