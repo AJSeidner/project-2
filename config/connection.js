@@ -9,7 +9,7 @@ else{
     connection=mysql.createConnection({
     host:"localhost",
     user: "root",
-    password:"",
+    password:"MartinD-28",
     database: "inventory_db"
     })
 
