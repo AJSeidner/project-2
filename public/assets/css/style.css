@@ -1,17 +1,29 @@
  #imd {
-	font-size: 50px;
+	font-size: 200px;
+	font-weight: bold;
 	text-align: center;
-	color: blue;
-	font-family: 'Alfa Slab One', cursive;
+	color: white;
+	
+	font-family: 'Libre Baskerville', serif;
 	
 }
+#title{
+	border-radius: 25px;
+	margin-top: 100px;
+	width: 800px;
+	background-color:rgba(0, 0, 0, 0.8);
+	margin-right: 80%;
 
+	padding-left: 25px;
+	text-align: center;
+	
+}
 
 #sub-tag {
 	font-size: 30px;
 	text-align: center;
-	color: blue;
-	font-family: 'Ropa Sans', sans-serif;
+	color: white;
+	font-family: 'Libre Baskerville', serif;
 }
 
 #logo {
@@ -20,11 +32,24 @@
 	float: left;
 }
 
-#please-sign-in {
-	font-size: 30px;
+#signIn {
+	font-size: 20px;
 	text-align: center;
-	color: blue;
-	font-family: 'Ropa Sans', sans-serif;
+	color: white;
+	background: black;
+	
+}
+
+#horrea2 {
+	margin-left: 5px;
+}
+
+.li {
+	color:white;
+}
+
+#logInBar {
+	width: 350px;
 }
 
 #wronglogin {
@@ -34,21 +59,41 @@
 	font-family: 'Ropa Sans', sans-serif;
 
 }
+#navbar {
+	background: black;
+	color: white;
+	font-size: 20px;
+	
 
+}
+.navHorrea {
+	color: white;
+	
+	font-family: 'Libre Baskerville', serif;
+}
 .nameDisplay {
-	color: blue !important;
+	color: white !important;
+	
 	font-size: 40px;
 	text-align: center;
-	font-family: 'Alfa Slab One', cursive;
+	font-family: 'Libre Baskerville', serif;
 	
+}
+#welcomeJumbo {
+	background-color:rgba(0, 0, 0, 0.8);
+	margin-top: 50px;
+	height: 400px;
+	width: 400px;
+	float: left;
+	border-radius: 25px;
 }
 
 
 .displayInstructions{
-	font-size: 40px;
+	font-size: 30px;
 	text-align: center;
-	color: blue;
-	font-family: 'Ropa Sans', sans-serif;
+	color: white;
+	font-family: ''Libre Baskerville', serif;
 
 
 }
@@ -101,8 +146,17 @@
 
 }
 
+.login-background{
+    background-image: url("../img/horrea.pdn");
+    background-repeat: no-repeat;
+    
+}
 
-path {
+
+
+}
+
+		path {
             stroke: #fff;
         }
 
@@ -154,3 +208,8 @@ path {
             align: right;
             width: 50px;
         }
+
+
+    #dashboard{
+    	float:right;
+    }

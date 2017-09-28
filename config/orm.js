@@ -161,8 +161,8 @@ var orm = {
 
     },
     leftJoin: function(table1,table2,cond,cb){
-        var queryString="select * from "+ table1 + " left join " 
-                        +table2+" on " + cond;
+        var queryString="SELECT * FROM "+ table1 + " LEFT JOIN " 
+                        +table2+" ON " + cond;
         
         console.log(queryString);
         

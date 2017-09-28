@@ -1,8 +1,12 @@
 <div class="container">
 <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
+     <img src="/assets/img/horrea2.jpg" height = "50px" width = "50px" class="pull-left" id="horrea2">
+    <!-- <span class="navHorrea">Horrea</span> -->
       <div class="container">
-        <div class="navbar-header">
+
+                
+        <div class="navbar-header" id="navbar">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -12,16 +16,27 @@
         
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+
           <ul class="nav navbar-nav">
-                <img src="/assets/img/logo2.png" height = "50px" width = "50px" class="pull-left">
           <!-- we need to update links in href -->
-                <li><a href="/manager/Matt">Home</a></li>
+                <li><a href="/manager/{{fname}}">Home</a></li>
                 <li><a href="/managers/allsold">Items Sold</a></li>
                 <li><a href="/managers/lowstock">Low Stock Items</a></li>
                  <li><a href="/managers/addproduct">Add Product</a></li>
                 <li><a href= "/managers/allinventory">Manage Inventory</a></li>
                 <li><a href= "/managers/addstock">Add Stock</a></li>
                 <li role="separator" class="divider"></li>
+            
+          <!--
+              <li><a href="/manager/{{fname}}">Home</a></li>
+              <li><a href="/manager/{{fname}}/allsold">Items Sold</a></li>
+                <li><a href="/manager/{{fname}}/lowstock">Low Stock Items</a></li>
+                <li><a href="/manager/{{fname}}/newproduct">Add Product</a></li>
+                <li><a href="/manager/{{fname}}/inventory">Manage Inventory</a></li>
+                <li><a href="manager/{{fname}}/addstock">Add Stock</a></li>
+                <li role="separator" class="divider"></li>
+          -->
+
               </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/managers/addsalesperson">Manage Staff</a></li>
@@ -31,7 +46,7 @@
       </div>
     </nav>
        
-        <div class="jumbotron">
+        <div class="jumbotron" id= "welcomeJumbo">
         <h1 class="nameDisplay">Welcome {{fname}} </h1>
         <p class="displayInstructions">Use the navigation bar to view and manage both inventory and staff.</p>
         </div>

@@ -10,7 +10,9 @@ var employee=require("../models/employee.js");
 //TODO
 // route: /manager
 // display homepage for the manager (assume just one manager)
-
+router.get('/managers', function(request,response){
+	response.render("managers")
+});
 
 //TODO
 // route: /view inventory
