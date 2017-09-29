@@ -118,7 +118,7 @@ router.put("/:name/addstock",function(request,response){
 		 console.log("condition: ", condition);
 		 inventory.update({stock_qty:updatedstock}, condition , function(data){
 
-				response.redirect("/managers/addstock", {fname: request.params.name}); 
+				response.redirect("addstock", {fname: request.params.name}); 
 		 });
 		
 
@@ -185,7 +185,7 @@ router.put("/:name/transferstock",function(request,response){
 		})
 
 	})
-		response.redirect("/:name/transferstock", {fname: request.params.name}); 
+		response.redirect("transferstock", {fname: request.params.name}); 
 })
 	
 
@@ -197,7 +197,7 @@ router.put("/:name/transferstock",function(request,response){
 // nice to have: form validation check - does not allow form to submit when the require field is not filled out
 
 router.get("/:name/addproduct",function(request,response){
-	response.render("newproduct");
+	response.render("newproduct", {fname: request.params.name});
 })
 
 router.post("/:name/addproduct",function(request,response){
@@ -214,7 +214,7 @@ router.post("/:name/addproduct",function(request,response){
 		inventoryline.create(["employeeId","inventoryId","qty","txnType","price_cost"],[3,data.insertId,stockQuantity,"p",totalcost],function(data){
 	 		
 	 	});
-		response.redirect("/managers/addstock", {fname: request.params.name});
+		response.redirect("addstock", {fname: request.params.name});
 	})
 
 })
