@@ -27,7 +27,7 @@ app.use(express.static("public"));
  var api= require("./controllers/api-routes.js");
 
 app.use("/",routes);
-app.use("/managers",managerRoutes);
+app.use("/manager",managerRoutes);
 app.use("/seller",salespersonRoutes);
 app.use("/",api);
 
@@ -35,3 +35,4 @@ app.listen(port,function(err){
 	
 	console.log("listening to port : "+ port);
 })
+
