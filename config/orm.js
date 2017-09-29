@@ -161,7 +161,7 @@ var orm = {
 
     },
     leftJoin: function(table1,table2,cond,cb){
-        var queryString="select * from "+ table1 + " left join " 
+        var queryString="SELECT * FROM "+ table1 + " LEFTJOIN " 
                         +table2+" on " + cond;
         
         console.log(queryString);
@@ -187,7 +187,19 @@ var orm = {
             }
             cb(result);
         });
-    }
+    },
+
+    topsales: function (whatToSelect, whatToSelect2, tableInput, cb){
+        var queryString = "SELECT " + whatToSelect.toString() + whatToSelect2.toString() + " FROM " + 
+        tableInput +" DESC " + "3";
+        console.log("IN select: "+queryString);
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        });
+    }   
 };
 
 

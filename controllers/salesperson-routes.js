@@ -15,7 +15,7 @@ router.get("/:name/sellinventory",function(request,response){
 		employee.innerJoin("inventory","regionCode","regionCode",function(result){
 			var soldItems = result.filter(e => e.fname === salespersonName);
 
-			//console.log(soldItems);
+			console.log("hello 1 " +soldItems);
 			response.render("sellinventory",{products:soldItems});
 		})
 		
@@ -30,7 +30,7 @@ router.put("/:name/sellinventory",function(request,response){
 	var quantity=parseInt(request.body.quantity);
 	var dbstock= parseInt(request.body.stock_qty);
 	var totalstock=dbstock-quantity;
-	console.log(totalstock);
+	console.log("hello 2 " +totalstock);
 
 
 	employee.findWhere({fname:employeenName},function(result){
@@ -51,6 +51,7 @@ router.put("/:name/sellinventory",function(request,response){
 		router.get("/:name/inventory",function(request,response){
 			var salespersonName=request.params.name;
 			var region = "";
+			console.log("hello 2 ");
 			employee.findWhere({fname:salespersonName},function(result){
 				region = result[0].regionCode;
 				inventory.findWhere({regionCode:region},function(data){
@@ -70,7 +71,7 @@ router.put("/:name/sellinventory",function(request,response){
 {		inventoryline.innerJoin("inventory","inventoryId","id",function(data){
 			var soldItems = data.filter(e => e.txnType === "s");
 
-			console.log(soldItems);
+			console.log("hello 3 " +soldItems);
     response.render("sellerallsold",{products:soldItems});
 
 });
@@ -87,7 +88,7 @@ router.put("/:name/sellinventory",function(request,response){
 				lowstockArr.push(result[i]);
 			}
 		}
-		console.log(lowstockArr);
+		console.log("hello 4 " +lowstockArr);
 		response.render("lowstock",{products:lowstockArr});
 	})
 	

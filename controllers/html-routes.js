@@ -47,11 +47,13 @@ router.get("/manager/:name", function(request, response) {
 	response.render("manager", {
 		fname: request.params.name
 	})
+	console.log("htmlroutes/manager");
 });
 router.get("/seller/:name", function(request, response) {
 	response.render("seller", {
 		fname: request.params.name
 	})
+	console.log("htmlroutes/seller");
 });
 router.get("/failedlogin", function(request, response) {
 	response.render("failedlogin");
