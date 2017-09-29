@@ -10,13 +10,22 @@ var employee=require("../models/employee.js");
 // route: /:salerperson's name
 // display homepage for that salesperson
 	// a route to sell inventory
+
+router.get("/:name/seller", function(request, response) {
+
+		response.render("seller",{fname: request.params.name});
+
+});
+
+
+
 router.get("/:name/sellinventory",function(request,response){
 	var salespersonName=request.params.name;
 		employee.innerJoin("inventory","regionCode","regionCode",function(result){
 			var soldItems = result.filter(e => e.fname === salespersonName);
 
 			//console.log(soldItems);
-			response.render("sellinventory",{products:soldItems});
+			response.render("sellinventory",{products:soldItems, fname: request.params.name});
 		})
 		
 		
@@ -55,7 +64,7 @@ router.put("/:name/sellinventory",function(request,response){
 				region = result[0].regionCode;
 				inventory.findWhere({regionCode:region},function(data){
 
-						response.render("salesinventory",{products:data})
+						response.render("salesinventory",{products:data, fname: request.params.name})
 				})
 
 			})
@@ -71,7 +80,7 @@ router.put("/:name/sellinventory",function(request,response){
 			var soldItems = data.filter(e => e.txnType === "s");
 
 			console.log(soldItems);
-    response.render("sellerallsold",{products:soldItems});
+    response.render("sellerallsold",{products:soldItems, fname: request.params.name});
 
 });
 	
@@ -88,7 +97,10 @@ router.put("/:name/sellinventory",function(request,response){
 			}
 		}
 		console.log(lowstockArr);
-		response.render("lowstock",{products:lowstockArr});
+		response.render("sellerlowstock", {
+			products: lowstockArr,
+			fname: request.params.name
+		});
 	})
 	
 })

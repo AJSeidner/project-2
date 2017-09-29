@@ -10,8 +10,14 @@ var employee=require("../models/employee.js");
 //TODO
 // route: /manager
 // display homepage for the manager (assume just one manager)
-router.get('/managers', function(request,response){
+/**router.get('/managers', function(request,response){
 	response.render("managers")
+});**/
+
+router.get("/:name/manager", function(request, response) {
+	response.render("manager", {
+		fname: request.params.name
+	})
 });
 
 //TODO
@@ -19,9 +25,9 @@ router.get('/managers', function(request,response){
 // display all inventory info regardless of region code
 // nice to have: sort by region, sort by category
 
-router.get("/allinventory",function(request,response){
+router.get("/:name/allinventory",function(request,response){
 	inventory.all(function(result){
-		response.render("allinventory",{products:result})
+		response.render("allinventory",{products:result, fname: request.params.name})
 	});
 	
 });
@@ -32,12 +38,12 @@ router.get("/allinventory",function(request,response){
 // display all sold items regardless of region code
 // nice to have: sort by region, sort by category
 
-router.get("/allsold",function(request,response){
+router.get("/:name/allsold",function(request,response){
 
 	//console.log(request);
 	inventoryline.innerJoin("inventory","inventoryId","id",function(data){
 			var soldItems = data.filter(e => e.txnType === "s");
-  response.render("allsold",{products:soldItems});
+  response.render("allsold",{products:soldItems, fname: request.params.name});
 });
 
 
@@ -50,7 +56,7 @@ router.get("/allsold",function(request,response){
 // route: /view items are low in stock
 // display all items that are low in stock (display all items that has stock qty < 15)
 // nice to have: sort by region, sort by category, allow manager to set low stock threshold
-router.get("/lowstock",function(request,response){
+router.get("/:name/lowstock",function(request,response){
 	inventory.all(function(result){
 		var lowstockArr=[];
 		for (var i=0 ; i<result.length ; i++)
@@ -61,7 +67,7 @@ router.get("/lowstock",function(request,response){
 			}
 		}
 		console.log(lowstockArr);
-		response.render("lowstock",{products:lowstockArr});
+		response.render("lowstock",{products:lowstockArr, fname: request.params.name});
 	})
 	
 })
@@ -79,14 +85,14 @@ router.get("/lowstock",function(request,response){
 // update the database with the new  stock quantity
 // give a message alerting that the data has been updated
 	
-router.get("/addstock",function(request,response){
+router.get("/:name/addstock",function(request,response){
 	inventory.all(function(result){
 		//console.log(result);
-		response.render("addstock",{products:result})
+		response.render("addstock",{products:result, fname: request.params.name})
 	});
 });
 
-router.put("/addstock",function(request,response){
+router.put("/:name/addstock",function(request,response){
 	var productName = request.body.product_name;
 	var stockQuantity =parseInt(request.body.stock_quantity); 
 	var purchaseCost = parseInt(request.body.purchase_cost);
@@ -112,7 +118,7 @@ router.put("/addstock",function(request,response){
 		 console.log("condition: ", condition);
 		 inventory.update({stock_qty:updatedstock}, condition , function(data){
 
-				response.redirect("/managers/addstock"); 
+				response.redirect("/managers/addstock", {fname: request.params.name}); 
 		 });
 		
 
@@ -130,11 +136,11 @@ router.put("/addstock",function(request,response){
 // post - update inventory item with above info
 //nice to have: only allow transfer when an item is available in both regions(currently we have east and west region) 
 
-router.get("/transferstock",function(request,response){
-	response.render("transferstock");
+router.get("/:name/transferstock",function(request,response){
+	response.render("transferstock", {fname: request.params.name});
 })
 
-router.put("/transferstock",function(request,response){
+router.put("/:name/transferstock",function(request,response){
 
 	var productName = request.body.product_name;	
 	var region = request.body.regionCode;
@@ -179,7 +185,7 @@ router.put("/transferstock",function(request,response){
 		})
 
 	})
-		response.redirect("/managers/transferstock"); 
+		response.redirect("/:name/transferstock", {fname: request.params.name}); 
 })
 	
 
@@ -190,11 +196,11 @@ router.put("/transferstock",function(request,response){
 // get: dispaly add new product form , post - add new entry to inventory table
 // nice to have: form validation check - does not allow form to submit when the require field is not filled out
 
-router.get("/addproduct",function(request,response){
+router.get("/:name/addproduct",function(request,response){
 	response.render("newproduct");
 })
 
-router.post("/addproduct",function(request,response){
+router.post("/:name/addproduct",function(request,response){
 	var productName = request.body.product_name;
 	var stockQuantity = parseInt(request.body.stock_quantity);
 	var unitPrice = request.body.unit_price;
@@ -208,7 +214,7 @@ router.post("/addproduct",function(request,response){
 		inventoryline.create(["employeeId","inventoryId","qty","txnType","price_cost"],[3,data.insertId,stockQuantity,"p",totalcost],function(data){
 	 		
 	 	});
-		response.redirect("/managers/addstock");
+		response.redirect("/managers/addstock", {fname: request.params.name});
 	})
 
 })
@@ -220,11 +226,11 @@ router.post("/addproduct",function(request,response){
 // get: dispaly add new salesperson form , post - add new entry to employee table
 // nice to have: form validation check - does not allow form to submit when the require field is not filled out
 
-router.get("/addsalesperson",function(request,response){
-	response.render("newsalesperson");
+router.get("/:name/addsalesperson",function(request,response){
+	response.render("newsalesperson", {fname: request.params.name});
 })
 
-router.post("/addsalesperson",function(request,response){
+router.post("/:name/addsalesperson",function(request,response){
 	var salesFirstName = request.body.salesperson_fname;
 	var salesLastName = request.body.salesperson_lname;
 	var salesEmail = request.body.salesperson_email;
