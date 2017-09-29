@@ -1,6 +1,7 @@
 <div class="container">
 <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+   <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
+     <img src="/assets/img/horrea2.jpg" height = "50px" width = "50px" class="pull-left" id="horrea2">
       <div class="container">
 
         <div class="navbar-header">
@@ -19,7 +20,7 @@
         <div id="navbar" class="navbar-collapse collapse">
       
           <ul class="nav navbar-nav">
-          <img src="/assets/img/logo2.png" height = "50px" width = "50px" class="pull-left">
+          
           <!-- we need to update links in href -->
                 <li><a href="/seller/{{fname}}">Home</a></li>
                 <li><a href="/seller/{{fname}}/allsold">Items Sold</a></li>
@@ -38,9 +39,11 @@
     </nav>
     <div class="container">
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1 class="nameDisplay">Welcome {{fname}} </h1>
-        <p class="displayInstructions">Use the navigation bar to view and manage inventory.</p>
-      </div>
+     <div class="jumbotron" id= "welcomeJumbo">
+        <h1 class="nameDisplay">Welcome {{fname}}, </h1>
+        <p class="displayInstructions">to your Horrea.</p>
+        </div>
+
+        <div id="dashboard"></div>
     </div> 
 </div>

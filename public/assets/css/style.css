@@ -1,5 +1,5 @@
  #imd {
-	font-size: 200px;
+	font-size: 100px;
 	font-weight: bold;
 	text-align: center;
 	color: white;
@@ -9,11 +9,11 @@
 }
 #title{
 	border-radius: 25px;
-	margin-top: 100px;
-	width: 800px;
+	margin-top: 200px;
+	width: 600px;
 	background-color:rgba(0, 0, 0, 0.8);
-	margin-right: 80%;
-
+	margin-right: 33%;
+	margin-left: 25%;
 	padding-left: 25px;
 	text-align: center;
 	
@@ -73,27 +73,30 @@
 }
 .nameDisplay {
 	color: white !important;
-	
-	font-size: 40px;
+	font-size: 30px;
 	text-align: center;
 	font-family: 'Libre Baskerville', serif;
+	margin-left: 5px;
 	
 }
 #welcomeJumbo {
 	background-color:rgba(0, 0, 0, 0.8);
 	margin-top: 50px;
-	height: 400px;
-	width: 400px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding-right: 30px;
+	height: 280px;
+	width: 380px;
 	float: left;
 	border-radius: 25px;
 }
 
 
 .displayInstructions{
-	font-size: 30px;
+	font-size: 10px;
 	text-align: center;
 	color: white;
-	font-family: ''Libre Baskerville', serif;
+	font-family: 'Libre Baskerville', serif;
 
 
 }
@@ -146,11 +149,6 @@
 
 }
 
-.login-background{
-    background-image: url("../img/horrea.pdn");
-    background-repeat: no-repeat;
-    
-}
 
 
 

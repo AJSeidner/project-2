@@ -1,4 +1,5 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+   <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
+     <img src="/assets/img/horrea2.jpg" height = "50px" width = "50px" class="pull-left" id="horrea2">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
@@ -11,9 +12,9 @@
 
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <img src="/assets/img/logo2.png" height="50px" width="50px" class="pull-left">
-        <!-- we need to update links in href -->
+
+          <ul class="nav navbar-nav">
+          <!-- we need to update links in href -->
                 <li><a href="/manager/{{fname}}">Home</a></li>
                 <li><a href="/manager/{{fname}}/allsold">Items Sold</a></li>
                 <li><a href="/manager/{{fname}}/lowstock">Low Stock Items</a></li>
@@ -21,7 +22,7 @@
                 <li><a href= "/manager/{{fname}}/allinventory">Manage Inventory</a></li>
                 <li><a href= "/manager/{{fname}}/addstock">Add Stock</a></li>
                 <li role="separator" class="divider"></li>
-      </ul>
+              </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/managers/addsalesperson">Manage Staff</a></li>
         <li><a href="/login">Log Out</a></li>
