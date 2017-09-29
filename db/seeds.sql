@@ -2,7 +2,7 @@
 INSERT INTO `employees`
 (`fname`,`lname`,`role`,`email`,`password`,`regionCode`)
 VALUES
-("Matt","M","m","matt@test.com","","A");
+("Matt","M","m","matt@test.com","matt","A");
 
 INSERT INTO `employees`
 (`fname`,`lname`,`role`,`email`,`password`,`regionCode`)
