@@ -1,6 +1,5 @@
-   <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
-     <img src="/assets/img/horrea2.jpg" height = "50px" width = "50px" class="pull-left" id="horrea2">
-     <div class="container" id="bar-mod">
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
 
         <div class="navbar-header">
         
@@ -15,9 +14,10 @@
           
         </div>
 
-         <div id="navbar" class="navbar-collapse collapse">
-
+        <div id="navbar" class="navbar-collapse collapse">
+      
           <ul class="nav navbar-nav">
+          <img src="/assets/img/logo2.png" height = "50px" width = "50px" class="pull-left">
           <!-- we need to update links in href -->
                 <li><a href="/manager/{{fname}}">Home</a></li>
                 <li><a href="/manager/{{fname}}/allsold">Items Sold</a></li>
@@ -25,13 +25,13 @@
                  <li><a href="/manager/{{fname}}/addproduct">Add Product</a></li>
                 <li><a href= "/manager/{{fname}}/allinventory">Manage Inventory</a></li>
                 <li><a href= "/manager/{{fname}}/addstock">Add Stock</a></li>
-                <li><a href= "/manager/{{fname}}/topsold">Top Sold</a></li>
+                <li><a href= "manager/{{fname}}/topsold"></a> </li>
                 <li role="separator" class="divider"></li>
               </ul>
             </li>
           </ul>
            <ul class="nav navbar-nav navbar-right">
-           <li><a href="/manager/{{fname}}/addsalesperson">Manage Staff</a></li>
+            <li><a href="/managers/addsalesperson">Manage Staff</a></li>
             <li><a href="/login">Log Out</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -45,20 +45,16 @@
 <hr>
  <table class="table">
     <thead> 
-        <th> Name</th> 
-        <th> Quantity</th> 
-        <th>Price </th>
-        <th> Region  </th>
-        <th> Department </th> 
+        <th> Name</th>  
+        <th> Gross Sales</th>
+        <th> Region  </th> 
     </thead> 
     <tbody> 
         {{#each products}} 
         <tr> 
-            <td>{{this.product_name}}</td> 
-            <td>{{this.stock_qty}}</td> 
-            <td>{{this.unit_price}} $</td>
+            <td>{{this.employeeId}}</td> 
+            <td>{{this.price_cost}}</td> 
             <td>{{this.regionCode}}</td>
-            <td>{{this.category}}</td
         </tr> 
         {{/each}} 
     </tbody> 

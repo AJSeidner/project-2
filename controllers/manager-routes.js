@@ -46,7 +46,17 @@ router.get("/:name/allsold",function(request,response){
   response.render("allsold",{products:soldItems, fname: request.params.name});
 });
 
-
+// TODO +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// route: /view top sales numbers and sales person
+// display: top 3 sales people and sales numbers for item selected
+// nice to have: sort by region, track month to month numbers in visual graph
+router.get("/topsold",function(request,response){
+	// console.log(request);
+	inventoryline.findWhere("inventory_line","employeeId","price_cost",function(data){
+			var topItems = data.filter(e => e.txnType === "s");
+	  response.render("topsold",{products:topItems});
+});
+})
 
 
 });

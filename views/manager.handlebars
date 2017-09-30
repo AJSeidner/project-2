@@ -25,6 +25,7 @@
                  <li><a href="/manager/{{fname}}/addproduct">Add Product</a></li>
                 <li><a href= "/manager/{{fname}}/allinventory">Manage Inventory</a></li>
                 <li><a href= "/manager/{{fname}}/addstock">Add Stock</a></li>
+                <li><a href= "manager/{{fname}}/topsold"></a> </li>
                 <li role="separator" class="divider"></li>
               </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -35,11 +36,29 @@
       </div>
     </nav>
        
-        <div class="jumbotron" id= "welcomeJumbo">
-        <h1 class="nameDisplay">Welcome {{fname}}, </h1>
-        <p class="displayInstructions">to your Horrea.</p>
-        </div>
+    <div class="jumbotron" id= "welcomeJumbo">
+      <h1 class="nameDisplay">Welcome {{fname}}, </h1>
+      <p class="displayInstructions">to your Horrea.</p>
+    </div>
 
-        <div id="dashboard"></div>
+    <table class="table">
+      <thead> 
+          <th> Name</th>  
+          <th> Gross Sales</th>
+          <th> Region  </th> 
+      </thead>
+
+      <tbody> 
+          {{#each products}} 
+          <tr> 
+              <td>{{this.employeeId}}</td> 
+              <td>{{this.price_cost}}</td> 
+              <td>{{this.regionCode}}</td>
+          </tr> 
+          {{/each}} 
+      </tbody> 
+    </table> 
+
+    <div id="dashboard"></div>
   
 </div>
