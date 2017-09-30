@@ -2,17 +2,17 @@
 INSERT INTO `employees`
 (`fname`,`lname`,`role`,`email`,`password`,`regionCode`)
 VALUES
-("Matt","M","m","matt@test.com","matt","A");
+("Harith","A","m","harith","harith","A");
 
 INSERT INTO `employees`
 (`fname`,`lname`,`role`,`email`,`password`,`regionCode`)
 VALUES
-("Shay","S","s","shay@test.com","shay","W");
+("A.J","S","s","ajseidner","ajseidner","E");
 
 INSERT INTO `employees`
 (`fname`,`lname`,`role`,`email`,`password`,`regionCode`)
 VALUES
-("Joe","S","s","Joe@test.com","joe","E");
+("Nathan","D","s","nathan","nathan","W");
 
 
 -- inventory table
