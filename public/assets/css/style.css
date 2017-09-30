@@ -56,15 +56,12 @@
 	font-size: 20px;
 	text-align: center;
 	color: red;
-	font-family: 'Ropa Sans', sans-serif;
+	font-family: 'Libre Baskerville', serif;
 
 }
-#navbar {
-	background: black;
-	color: white;
-	font-size: 20px;
-	
-
+.navbar-default .navbar-nav>li>a {
+    
+    color: white;
 }
 .navHorrea {
 	color: white;
@@ -101,18 +98,22 @@
 
 }
 
+#bar-mod {
+	    width: 100%;
+    background: black;
+}
 #addProduct {
 	text-align: center;
-	font-size: 30px;
-	font-family: 'Alfa Slab One', cursive;
-	color: blue;
+	font-size: 40px;
+	font-family: 'Libre Baskerville', serif;
+	color: black;
 	font-weight: bold;
 
 }
 
 .lowStock{
 	margin-top: 100px;
-	font-family: 'Ropa Sans', sans-serif;
+	font-family: 'Libre Baskerville', serif;
 	color: black;
 	font-size: 20px;
 }
@@ -120,8 +121,8 @@
 #lowStockTitle{
 	text-align: center;
 	font-size: 40px;
-	font-family: 'Ropa Sans', sans-serif;
-	color: blue;
+	font-family: 'Libre Baskerville', serif;v
+	color: black;
 	font-weight: bold;
 
 
@@ -130,7 +131,7 @@
 
 .salespersonadd {
 	margin-top: 100px;
-	font-family: 'Ropa Sans', sans-serif;
+	font-family: 'Libre Baskerville', serif;
 	color: black;
 	font-size: 20px;
 	text-align: center;
@@ -139,11 +140,11 @@
 
 
 #addStock{
-
+	margin-top:90px;
 	text-align: center;
-	font-size: 30px;
-	font-family: 'Alfa Slab One', cursive;
-	color: blue;
+	font-size: 40px;
+	font-family: 'Libre Baskerville', serif;
+	color: black;
 	font-weight: bold;
 
 
@@ -210,4 +211,8 @@
 
     #dashboard{
     	float:right;
+    }
+
+    .container-flex {
+    	margin-top: 90px;
     }

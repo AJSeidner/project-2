@@ -87,16 +87,17 @@ router.get("/:name/lowstock",function(request,response){
 	
 router.get("/:name/addstock",function(request,response){
 	inventory.all(function(result){
-		//console.log(result);
+		// console.log(response);
 		response.render("addstock",{products:result, fname: request.params.name})
 	});
 });
+
 
 router.put("/:name/addstock",function(request,response){
 	var productName = request.body.product_name;
 	var stockQuantity =parseInt(request.body.stock_quantity); 
 	var purchaseCost = parseInt(request.body.purchase_cost);
-
+	
 
 
 
@@ -118,16 +119,15 @@ router.put("/:name/addstock",function(request,response){
 		 console.log("condition: ", condition);
 		 inventory.update({stock_qty:updatedstock}, condition , function(data){
 
-				response.redirect("addstock", {fname: request.params.name}); 
-		 });
+				response.redirect("addstock")
 		
 
-	})
+	});
 
 	
+});
 
-
-})
+});
 
 
 //TODO
@@ -214,7 +214,7 @@ router.post("/:name/addproduct",function(request,response){
 		inventoryline.create(["employeeId","inventoryId","qty","txnType","price_cost"],[3,data.insertId,stockQuantity,"p",totalcost],function(data){
 	 		
 	 	});
-		response.redirect("addstock", {fname: request.params.name});
+		response.redirect("addstock");
 	})
 
 })
